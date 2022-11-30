@@ -19,6 +19,12 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let surucuYasi = 24;
+if (surucuYasi >=18){
+  console.log("true")
+} else {
+  console.log("false")
+}
 
 
 
@@ -33,8 +39,13 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birincideger = 53;
+let ikincideger = 100;
+if(birincideger===ikincideger) {
+  birincideger = 300;
 
-
+}
+console.log(birincideger);
 
 
 
@@ -61,9 +72,16 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b){
+ return a * b;
+
+
+
+  
 }
+
+console.log(carpma(7,5))
+
 
 
 
@@ -77,9 +95,11 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(x) {
+return x*7;
+ 
 }
+console.log(kopeginYasi(5))
 
 
 
@@ -103,10 +123,45 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
 function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+  if((oyuncu==="Taş")|| (oyuncu === "Kağıt")||(oyuncu==="Makas")&&(bilgisayar==="Taş")|| (bilgisayar === "Kağıt")||(bilgisayar==="Makas")){
+      if(oyuncu===bilgisayar){
+        let sonuc = "Beraberlik";
+        return sonuc;
+      }
+      else if((oyuncu==="Taş"&&bilgisayar==="Makas")||(oyuncu==="Kağıt"&&bilgisayar==="Taş")||(oyuncu==="Makas"&&bilgisayar==="Kağıt")){
+        let sonuc = "Kazandın!";
+        return sonuc;
+      }
+      else{
+        let sonuc = "Kaybettin!"
+        return sonuc;
+      }
+    }
+  else{
+    console.log("Yazım kurallarına uymadığı için teste devam edemezssin..")
+  }
 }
+let bilgisayar = bilgisayarSecimi()
+function bilgisayarSecimi(){
+  let bilgisayarRandom = Math.ceil(Math.random()*3)
+  let bilgisayarınDurumu;
+  if(bilgisayarRandom===1){
+    bilgisayarınDurumu = "Taş";
+  }
+  else if(bilgisayarRandom===2){
+    bilgisayarınDurumu = "Makas"
+  }
+  else{
+    bilgisayarınDurumu = "Kağıt"
+  }
+  return bilgisayarınDurumu;
+}
+console.clear()
+let oyuncu = "Taş"
+console.log(oyun(oyuncu,bilgisayar))
+
+
 
 
 
@@ -120,10 +175,10 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
-}
-
+function milDonusturucu(km){
+  return km*0.621371
+  }
+console.log("10km"+ "=" + milDonusturucu(10)+"mil")
 
 
 //Görev 4b - Santimetreden Feet
@@ -134,9 +189,10 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  return cm/30.48
 }
+console.log(feetDonusturucu(160))
 
 
 
@@ -152,10 +208,18 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 3. Bu fonksiyonun dışında bir yerde, maymun sayısının her seferinde 1 azaldığı ve maymun sayısı 1 olana kadar devem eden bir döngü oluşturun. 
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
+console.clear();
+function cocukSarkisi(x){
+ return  `${x} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+ 
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+
 }
+let y = 11;
+for(let i=y; i>0; i--){
+  console.log(cocukSarkisi(i))
+}
+
 
 
 /* Görev 6 : Not Hesaplayıcı */
@@ -173,9 +237,21 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(not){
+if(not>=90) {
+  return("A aldın")
+} else if (not>=80){
+  return("B aldın")
+  } else if (not>=70){
+    return("C aldın")
+} else if (not>=60){
+  return("D aldın")
+  } else {
+    return("F aldın")
+  }
 }
+notHesapla(20)
+
 
 
 
